@@ -35,22 +35,19 @@ function renderSlide() {
         for (let i = currentSlide; i < currentSlide + 3; i++) {
             const slideIndex = i >= slides.length ? i - slides.length : i;
             productsContainer.innerHTML += slides[slideIndex];
+            getId(slides[slideIndex]);
         }
     } else if (window.matchMedia('(min-width: 767px)').matches) {
         for (let i = currentSlide; i < currentSlide + 2; i++) {
             const slideIndex = i >= slides.length ? i - slides.length : i;
             productsContainer.innerHTML += slides[slideIndex];
+            getId(slides[slideIndex]);
         }
     } else {
         productsContainer.innerHTML = slides[currentSlide];
+        getId(slides[currentSlide]);
     }
 
-    function getId(slide) {
-        const startIndex = slide.indexOf('class=\"product__name\">') + 25
-        const lastIndex = slide.indexOf('</a>\n                <p class=\"product__price>') - 1
-        const name = slide.slice(startIndex, lastIndex)
-        console.log('name: ', name)
-    }
 
     // const slidesOnPage = document.querySelectorAll('shop__product')
     // console.log('Test before slidesOnPage.forEach')
@@ -69,6 +66,13 @@ function renderSlide() {
     // })
 
     renderIndicators();
+}
+
+function getId(slide) {
+    const startIndex = slide.indexOf('class=\"product__name\">') + 25
+    const lastIndex = slide.indexOf('</a>\n                <p class=\"product__price>') - 1
+    const name = slide.slice(startIndex, lastIndex)
+    console.log('name: ', name)
 }
 
 function nextSlide() {
