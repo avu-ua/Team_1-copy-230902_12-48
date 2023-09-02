@@ -45,21 +45,28 @@ function renderSlide() {
         productsContainer.innerHTML = slides[currentSlide];
     }
 
-    const slidesOnPage = document.querySelectorAll('shop__product')
-    console.log('Test before slidesOnPage.forEach')
-    slidesOnPage.forEach((el) => {
-        const tagWithProductName = el.querySelector('a:nth-child(2)')
-        const productName = tagWithProductName.innerText
-        console.log('productName: ', productName)
-        const product = catalogue.products.find((item) => item.name === productName)
-        console.log('product: ', console.log(''))
-        const buyBtn = el.lastChild
-        buyBtn.addEventListener('click', () => {
-            console.log('test 1')
-            setOrderingListeners(product.code, 1)
-            console.log('test 2')
-        })
-    })
+    function getId(slide) {
+        const startIndex = slide.indexOf('class=\"product__name\">') + 25
+        const lastIndex = slide.indexOf('</a>\n                <p class=\"product__price>') - 1
+        const name = slide.slice(startIndex, lastIndex)
+        console.log('name: ', name)
+    }
+
+    // const slidesOnPage = document.querySelectorAll('shop__product')
+    // console.log('Test before slidesOnPage.forEach')
+    // slidesOnPage.forEach((el) => {
+    //     const tagWithProductName = el.querySelector('a:nth-child(2)')
+    //     const productName = tagWithProductName.innerText
+    //     console.log('productName: ', productName)
+    //     const product = catalogue.products.find((item) => item.name === productName)
+    //     console.log('product: ', console.log(''))
+    //     const buyBtn = el.lastChild
+    //     buyBtn.addEventListener('click', () => {
+    //         console.log('test 1')
+    //         setOrderingListeners(product.code, 1)
+    //         console.log('test 2')
+    //     })
+    // })
 
     renderIndicators();
 }
