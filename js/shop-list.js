@@ -56,6 +56,7 @@ function activateBuyButton() {
         const productName = el.innerText
         console.log('productName: ', productName)
         console.log('catalogue.products: ', catalogue.products)
+        console.log('name of first elem in catalogue.products: ', catalogue.products[0]['name'])
         const product = catalogue.products.find((item) => item['name'] === productName)
         console.log('product: ', console.log(product))
         const parent = el.parentElement
