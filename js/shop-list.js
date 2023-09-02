@@ -118,5 +118,5 @@ function renderIndicators() {
     });
 }
 
-renderIndicators();
+// renderIndicators();
 
