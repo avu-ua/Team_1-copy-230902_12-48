@@ -20,6 +20,8 @@ function setOrderingListeners() {
         btn.addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
             itemsCount += quantity; // Збільшуємо лічильник
             updateCartBadge(); // Викликаємо функцію для оновлення значка корзини
+            console.log('itemId: ', itemId)
+            console.log('quantity: ', quantity)
             updateBasketJsonData(itemId, quantity) // Викликаємо функцію для оновлення JSON-стрінги для Корзини (містить пари "ID товара : кількість")
         });
     }); 
