@@ -57,14 +57,20 @@ function activateBuyButton() {
         console.log('productName: ', productName)
         console.log('catalogue.products: ', catalogue.products)
         console.log('name of first elem in catalogue.products: ', catalogue.products[0]['name'])
-        const product = catalogue.products.find((item) => item['name'] === productName)
-        console.log('product: ', console.log(product))
+        for (let i = 0; i < catalogue.products.length; i++) {
+            if (catalogue.products[i]['name'] === productName) {
+                const productId = catalogue.products[i]['code']
+                break
+            }
+        }
+        // const product = catalogue.products.find((item) => item['name'] === productName)
+        console.log('productId: ', console.log(productId))
         const parent = el.parentElement
         const buyBtn = parent.lastChild
         console.log('BuyBtn', buyBtn.innerText)
         buyBtn.addEventListener('click', () => {
             console.log('test 1')
-            setOrderingListeners(product.code, 1)
+            setOrderingListeners(productId, 1)
             console.log('test 2')
         })
     })
