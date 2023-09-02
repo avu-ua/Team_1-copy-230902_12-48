@@ -23,7 +23,6 @@ function renderProduct(products) {
             </div>
             `;
         slides.push(content)
-        codes.push(products[i].code)
     }
     renderSlide()
     getCodes();
