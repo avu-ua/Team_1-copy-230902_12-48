@@ -22,6 +22,7 @@ function renderProduct(products) {
                 <div class="button add-btn" href="#cart-badge">
                     <strong>Add to cart</strong>
                     <span style="display: none">${products[i].code}</span>
+                    <span style="display: none">1</span>
                 </div>
             </div>`;
         slides.push(content)
