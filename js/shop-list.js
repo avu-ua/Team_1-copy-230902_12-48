@@ -57,9 +57,10 @@ function activateBuyButton() {
         console.log('productName: ', productName)
         console.log('catalogue.products: ', catalogue.products)
         console.log('name of first elem in catalogue.products: ', catalogue.products[0]['name'])
+        let productId
         for (let i = 0; i < catalogue.products.length; i++) {
             if (catalogue.products[i]['name'] === productName) {
-                const productId = catalogue.products[i]['code']
+                productId = catalogue.products[i]['code']
                 break
             }
         }
