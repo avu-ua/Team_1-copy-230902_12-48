@@ -12,6 +12,15 @@ const cartBadge = document.querySelector('.cart-badge');
 const cartCounter = document.querySelector('.cart-badge__counter');
 let itemsCount // початкова кількість замовленого товару невизначена
 
+function testOrderbtn() {
+    const addBtns = document.querySelectorAll('.add-btn');
+    addBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            console.log('function testOrderbtn worked')
+        }
+    }
+}
+
 function setOrderingListeners(itemId, quantity) {
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
     addBtns.forEach(btn => {
