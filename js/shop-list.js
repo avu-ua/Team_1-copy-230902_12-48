@@ -55,6 +55,7 @@ function activateBuyButton() {
         // const tagWithProductName = el.querySelector('a:nth-child(2)')
         const productName = el.innerText
         console.log('productName: ', productName)
+        console.log('catalogue.products: ', catalogue.products)
         const product = catalogue.products.find((item) => item.name === productName)
         console.log('product: ', console.log(product))
         const parent = el.parentElement
