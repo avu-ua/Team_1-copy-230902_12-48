@@ -58,8 +58,8 @@ function renderSlide() {
     } else {
         productsContainer.innerHTML = slides[currentSlide];
     }
-    localStorageHandler();
     renderIndicators();
+    localStorageHandler();
 }
 
 function prevSlide() {
