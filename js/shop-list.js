@@ -56,9 +56,10 @@ function activateBuyButton() {
         const productName = el.innerText
         console.log('productName: ', productName)
         const product = catalogue.products.find((item) => item.name === productName)
-        console.log('product: ', console.log(''))
+        console.log('product: ', console.log(product))
         const parent = el.parentElement
         const buyBtn = parent.lastChild
+        console.log('BuyBtn', buyBtn.innerText)
         buyBtn.addEventListener('click', () => {
             console.log('test 1')
             setOrderingListeners(product.code, 1)
