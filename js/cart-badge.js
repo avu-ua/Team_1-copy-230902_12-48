@@ -17,8 +17,8 @@ function testOrderbtn() {
     addBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
             console.log('function testOrderbtn worked')
-        }
-    }
+        })
+    })
 }
 
 function setOrderingListeners(itemId, quantity) {
