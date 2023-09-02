@@ -46,10 +46,13 @@ function renderSlide() {
     }
 
     const slidesOnPage = document.querySelectorAll('shop__product')
+    console.log('Test before slidesOnPage.forEach')
     slidesOnPage.forEach((el) => {
         const tagWithProductName = el.querySelector('a:nth-child(2)')
         const productName = tagWithProductName.innerText
+        console.log('productName: ', productName)
         const product = catalogue.products.find((item) => item.name === productName)
+        console.log('product: ', console.log(''))
         const buyBtn = el.lastChild
         buyBtn.addEventListener('click', () => {
             console.log('test 1')
