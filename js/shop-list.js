@@ -1,5 +1,6 @@
 import * as catalogue from './products-catalogue.js'
 
+
 const slides = []
 let currentSlide = 0
 const nextButton = document.querySelector('.shop__arrowR');
@@ -14,22 +15,17 @@ function renderProduct(products) {
     productsContainer.innerHTML = ''
     for (let i = 0; i < products.length; i++) {
         const content =
-            `
-            <div class="shop__product product">
+            `<div class="shop__product product">
+                <div class="shop__product product">
                 <a href="store-product.html?id=${products[i].code}"><img src="${products[i].images[0]}" alt="${products[i].name}"></img></a>
                 <a href="store-product.html" class="product__name">${products[i].name}</a>
                 <p class="product__price">${products[i].price.toFixed(2)}${products[i].currency}</p>
-                <div class="button add-btn">
-                    <strong>Add to cart</strong>
-                    <span style="display: none;">${products[i].code}</span>
+                <a class="button add-btn" href="#cart-badge"><strong>Add to cart</strong></a>
                 </div>
-            </div>
-            `;
+            </div>`;
         slides.push(content)
     }
     renderSlide()
-    // activateBuyButton();
-    // testOrderbtn();
 }
 
 function renderSlide() {
@@ -49,51 +45,19 @@ function renderSlide() {
     } else {
         productsContainer.innerHTML = slides[currentSlide];
     }
+
     renderIndicators();
 }
-
-// function activateBuyButton() {
-//     const productsOnPage = document.querySelectorAll('.product__name')
-//     console.log('Test before slidesOnPage.forEach')
-//     productsOnPage.forEach((el) => {
-//         // const tagWithProductName = el.querySelector('a:nth-child(2)')
-//         const productName = el.innerText
-//         console.log('productName: ', productName)
-//         console.log('catalogue.products: ', catalogue.products)
-//         console.log('name of first elem in catalogue.products: ', catalogue.products[0]['name'])
-//         let productId
-//         for (let i = 0; i < catalogue.products.length; i++) {
-//             if (catalogue.products[i]['name'] === productName) {
-//                 productId = catalogue.products[i]['code']
-//                 break
-//             }
-//         }
-//         // const product = catalogue.products.find((item) => item['name'] === productName)
-//         console.log('productId: ', console.log(productId))
-//         const parent = el.parentElement
-//         const buyBtn = parent.lastChild
-//         console.log('BuyBtn', buyBtn.innerText)
-//         buyBtn.addEventListener('click', () => {
-//             console.log('test 1')
-//             setOrderingListeners(productId, 1)
-//             console.log('test 2')
-//         })
-//     })
-// }
 
 function nextSlide() {
     currentSlide = currentSlide + 1 >= slides.length ? 0 : currentSlide + 1
     renderSlide()
-    // activateBuyButton();
-    // testOrderbtn();
 }
 
 
 function prevSlide() {
     currentSlide = currentSlide - 1 < 0 ? slides.length - 1 : currentSlide - 1
     renderSlide()
-    // activateBuyButton();
-    // testOrderbtn();
 }
 
 
@@ -111,8 +75,6 @@ function renderIndicators() {
         indicator.addEventListener('click', () => {
             currentSlide = index;
             renderSlide();
-            // activateBuyButton();
-            // testOrderbtn();
             renderIndicators(slides, currentSlide);
         });
         indicator.addEventListener('mouseover', () => {
@@ -125,5 +87,4 @@ function renderIndicators() {
     });
 }
 
-// renderIndicators();
-
+renderIndicators();
