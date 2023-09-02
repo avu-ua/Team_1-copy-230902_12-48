@@ -89,7 +89,7 @@ function renderIndicators() {
         indicator.addEventListener('click', () => {
             currentSlide = index;
             renderSlide();
-            renderIndicators();
+            renderIndicators(slides, currentSlide);
         });
         indicator.addEventListener('mouseover', () => {
             indicator.classList.add('best-deals__button--hover');
