@@ -9,7 +9,7 @@ catalogue.products.forEach(el => {
 let orderJsonData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в localStorage)
 
 const cartBadge = document.querySelector('.cart-badge');
-const cartCounter = document.querySele+ctor('.cart-badge__counter');
+const cartCounter = document.querySelector('.cart-badge__counter');
 let itemsCount // початкова кількість замовленого товару невизначена
 
 function setOrderingListeners() {
