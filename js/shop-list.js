@@ -52,7 +52,9 @@ function renderSlide() {
         const product = catalogue.products.find((item) => item.name === productName)
         const buyBtn = el.lastChild
         buyBtn.addEventListener('click', () => {
+            console.log('test 1')
             setOrderingListeners(product.code, 1)
+            console.log('test 2')
         })
     })
 
