@@ -25,7 +25,7 @@ function renderProduct(products) {
         slides.push(content)
     }
     renderSlide()
-    getCodes();
+    activateBuyButton();
 }
 
 function renderSlide() {
@@ -48,16 +48,17 @@ function renderSlide() {
     renderIndicators();
 }
 
-function getCodes() {
-    const slidesOnPage = document.querySelectorAll('shop__product')
+function activateBuyButton() {
+    const productsOnPage = document.querySelectorAll('.product__name')
     console.log('Test before slidesOnPage.forEach')
-    slidesOnPage.forEach((el) => {
-        const tagWithProductName = el.querySelector('a:nth-child(2)')
-        const productName = tagWithProductName.innerText
+    productsOnPage.forEach((el) => {
+        // const tagWithProductName = el.querySelector('a:nth-child(2)')
+        const productName = el.innerText
         console.log('productName: ', productName)
         const product = catalogue.products.find((item) => item.name === productName)
         console.log('product: ', console.log(''))
-        const buyBtn = el.lastChild
+        const parent = el.parentElement
+        const buyBtn = parent.lastChild
         buyBtn.addEventListener('click', () => {
             console.log('test 1')
             setOrderingListeners(product.code, 1)
@@ -69,14 +70,14 @@ function getCodes() {
 function nextSlide() {
     currentSlide = currentSlide + 1 >= slides.length ? 0 : currentSlide + 1
     renderSlide()
-    getCodes();
+    activateBuyButton();
 }
 
 
 function prevSlide() {
     currentSlide = currentSlide - 1 < 0 ? slides.length - 1 : currentSlide - 1
     renderSlide()
-    getCodes();
+    activateBuyButton();
 }
 
 
@@ -94,7 +95,7 @@ function renderIndicators() {
         indicator.addEventListener('click', () => {
             currentSlide = index;
             renderSlide();
-            getCodes();
+            activateBuyButton();
             renderIndicators(slides, currentSlide);
         });
         indicator.addEventListener('mouseover', () => {
