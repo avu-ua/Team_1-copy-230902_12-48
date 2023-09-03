@@ -12,7 +12,7 @@ const cartBadge = document.querySelector('.cart-badge');
 const cartCounter = document.querySelector('.cart-badge__counter');
 let itemsCount // початкова кількість замовленого товару невизначена
 
-document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('DOMContentLoaded', function() {
 // function setOrderingListeners() {
     console.log('Test line 17')
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateBasketJsonData(itemId, quantity) // Викликаємо функцію для оновлення JSON-стрінги для Корзини (містить пари "ID товара : кількість")
         });
     }
-});
+// });
     
     // addBtns.forEach((el) => {
     //     const itemIdElem = el.querySelector('.wineId')
