@@ -13,7 +13,7 @@ if (!localStorage.getItem('basket')) {
 let orderJsonData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в localStorage)
 
 const cartBadge = document.querySelector('.cart-badge');
-const cartCounter = document.querySelector('.cart-badge__counter');
+// const cartCounter = document.querySelector('.cart-badge__counter');
 let itemsCount // початкова кількість замовленого товару невизначена
 
 function setOrderingListeners() {
@@ -26,6 +26,7 @@ function setOrderingListeners() {
         const quantity = Number(qtys[i].textContent)
         addBtns[i].addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
             itemsCount += quantity; // Збільшуємо лічильник
+            console.log('itemsCount on click: ', itemsCount)
             updateCartBadge(itemsCount); // Викликаємо функцію для оновлення значка корзини
             updateBasketJsonData(itemId, quantity) // Викликаємо функцію для оновлення JSON-стрінги для Корзини (містить пари "ID товара : кількість")
         });
@@ -35,7 +36,7 @@ function setOrderingListeners() {
 setOrderingListeners()
 
 function updateCartBadge(itemsCount) {
-    cartCounter.textContent = itemsCount; // Оновлюємо вміст лічильника
+    // cartCounter.textContent = itemsCount; // Оновлюємо вміст лічильника
     if (itemsCount) {
         cartBadge.classList.remove('hidden');
     } else {
