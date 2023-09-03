@@ -22,7 +22,7 @@ let itemsCount // початкова кількість замовленого �
     for (let i = 0; i < addBtns.length; i++) {
         console.log('Test line 23')
         // const itemIdElem = addBtns[i].querySelector('.wineId')
-        const itemId = wineIds[i].textContent
+        const itemId = wineIds[i].innerText
         // const quantityElem = addBtns[i].querySelector('.qty')
         const quantity = Number(qtys[i].textContent)
         console.log('TestBeforeListener')
