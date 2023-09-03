@@ -29,8 +29,9 @@ function setOrderingListeners() {
     }); 
 }
 
-
-setOrderingListeners()
+document.addEventListener('DOMContentLoaded', function() {
+    setOrderingListeners()
+});
 
 function updateCartBadge() {
     cartCounter.textContent = itemsCount; // Оновлюємо вміст лічильника
