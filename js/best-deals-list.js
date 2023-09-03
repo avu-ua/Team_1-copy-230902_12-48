@@ -19,7 +19,11 @@ function renderProduct(products) {
                 <a class="id-${products[i].code}" href="store-product.html"><img src="${products[i].images[0]}" alt="${products[i].name}"></img></a>
                 <a href="store-product.html" class="product__name id-${products[i].code}">${products[i].name}</a>
                 <p class="product__price">${products[i].price.toFixed(2)}${products[i].currency}</p>
-                <a class="button add-btn"><strong>Add to cart</strong></a>
+                <div class="button add-btn">
+                    <span class="wineId" style="display: none">${products[i].code}</span>
+                    <strong>Add to cart</strong>
+                    <span class="qty" style="display: none">1</span>
+                </div>
             </div>`
             slides.push(content)
         }
