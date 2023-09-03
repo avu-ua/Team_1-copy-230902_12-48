@@ -4,8 +4,8 @@ import * as catalogue from './products-catalogue.js' // імпортуємо к�
 
 
 let itemsCount = 0 // початкова кількість замовленого товару невизначена
-if (localStorage.getItem('itemsCount')) {
-    itemsCount = Number(localStorage.getItem('itemsCount'))
+if (sessionStorage.getItem('itemsCount')) {
+    itemsCount = Number(sessionStorage.getItem('itemsCount'))
 }
 
 const cartBadge = document.querySelector('.cart-badge');
@@ -13,17 +13,17 @@ const cartCounter = document.querySelector('.cart-badge__counter');
 
 // у цьому розділі готуємо пустий масив, що містить key : value пари по кожному товару в каталозі --> ID товара : нульова кількість
 let orderData = {}
-if (!localStorage.getItem('basket')) {
+if (!sessionStorage.getItem('basket')) {
     catalogue.products.forEach(el => {
         orderData[el.code] = 0
     })
 } else {
-    orderData = JSON.parse(localStorage.getItem('basket'))
+    orderData = JSON.parse(sessionStorage.getItem('basket'))
     for (const [key, value] of Object.entries(orderData)) {
         itemsCount += value
     }
 }
-let orderJsonData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в localStorage)
+let orderJsonData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в sessionStorage)
 
 
 function setOrderingListeners() {
@@ -41,8 +41,8 @@ function setOrderingListeners() {
         const quantity = Number(qtys[i].textContent)
         addBtns[i].addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
             itemsCount += quantity; // Збільшуємо лічильник
-            console.log('before "localStorage.setItem(\'itemsCount\', itemsCount)"')
-            localStorage.setItem('itemsCount', itemsCount)
+            console.log('before "sessionStorage.setItem(\'itemsCount\', itemsCount)"')
+            sessionStorage.setItem('itemsCount', itemsCount)
             console.log('itemsCount on click: ', itemsCount)
             updateCartBadge(itemsCount); // Викликаємо функцію для оновлення значка корзини
             updateBasketJsonData(itemId, quantity) // Викликаємо функцію для оновлення JSON-стрінги для Корзини (містить пари "ID товара : кількість")
@@ -65,21 +65,24 @@ function updateCartBadge(itemsCount) {
 function updateBasketJsonData(itemId, quantity) {
     orderData[itemId] += quantity
     orderJsonData = JSON.stringify(orderData)
-    localStorage.setItem('basket', orderJsonData)
+    sessionStorage.setItem('basket', orderJsonData)
     
     // нижче - виключно для тестування
-    const test = JSON.parse(localStorage.getItem('basket'))
-    console.log('Basket retrieved from localStorage: ', test)
+    const test = JSON.parse(sessionStorage.getItem('basket'))
+    console.log('Basket retrieved from sessionStorage: ', test)
 }
 
-if (localStorage.getItem('clearLocalStorageOnUnload') === 'true') {
-    localStorage.clear()
-}
 
-window.addEventListener('beforeunload', () => {
-    localStorage.setItem('clearLocalStorageOnUnload', 'true')
-})
 
-window.addEventListener('load', () => {
-    localStorage.removeItem('clearLocalStorageOnUnload');
-});
+
+// if (localStorage.getItem('clearLocalStorageOnUnload') === 'true') {
+//     localStorage.clear()
+// }
+
+// window.addEventListener('beforeunload', () => {
+//     localStorage.setItem('clearLocalStorageOnUnload', 'true')
+// })
+
+// window.addEventListener('load', () => {
+//     localStorage.removeItem('clearLocalStorageOnUnload');
+// });
