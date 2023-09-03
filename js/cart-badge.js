@@ -24,6 +24,7 @@ let jsonOrderData // готуємо змінну для прийняття ст�
 
 setOrderingListeners()
 
+console.log('itemsCount right before updateCartBadge(itemsCount): ', itemsCount)
 updateCartBadge(itemsCount)
 
 function setOrderingListeners() {
