@@ -46,11 +46,7 @@ function setOrderingListeners() {
 
 setOrderingListeners()
 
-if (itemsCount && sessionStorage.getItem('itemsCount')) {
-    if (itemsCount !== Number(sessionStorage.getItem('itemsCount'))) {
-        updateCartBadge(itemsCount)
-    }
-}
+updateCartBadge(itemsCount)
 
 function updateCartBadge(itemsCount) {
     cartCounter.textContent = itemsCount; // Оновлюємо вміст лічильника
