@@ -16,24 +16,17 @@ const cartBadge = document.querySelector('.cart-badge');
 const cartCounter = document.querySelector('.cart-badge__counter');
 let itemsCount // початкова кількість замовленого товару невизначена
 
-// document.addEventListener('DOMContentLoaded', function() {
 function setOrderingListeners() {
-    console.log('Test line 17')
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
     const wineIds = document.querySelectorAll('.wineId');
     const qtys = document.querySelectorAll('.qty');
     
     for (let i = 0; i < addBtns.length; i++) {
-        console.log('Test line 23')
         const itemId = wineIds[i].textContent
         const quantity = Number(qtys[i].textContent)
-        console.log('TestBeforeListener')
         addBtns[i].addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
-            console.log('TESTinsideListener')
             itemsCount += quantity; // Збільшуємо лічильник
-            updateCartBadge(); // Викликаємо функцію для оновлення значка корзини
-            console.log('itemId: ', itemId)
-            console.log('quantity: ', quantity)
+            updateCartBadge(itemsCount); // Викликаємо функцію для оновлення значка корзини
             updateBasketJsonData(itemId, quantity) // Викликаємо функцію для оновлення JSON-стрінги для Корзини (містить пари "ID товара : кількість")
         });
     }
@@ -41,7 +34,7 @@ function setOrderingListeners() {
 
 setOrderingListeners()
 
-function updateCartBadge() {
+function updateCartBadge(itemsCount) {
     cartCounter.textContent = itemsCount; // Оновлюємо вміст лічильника
     if (itemsCount) {
         cartBadge.classList.remove('hidden');
