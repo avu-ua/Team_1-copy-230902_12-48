@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const itemId = wineIds[i].textContent
         // const quantityElem = addBtns[i].querySelector('.qty')
         const quantity = Number(qtys[i].textContent)
+        console.log('TestBeforeListener')
         addBtns[i].addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
+            console.log('TESTinsideListener')
             itemsCount += quantity; // Збільшуємо лічильник
             updateCartBadge(); // Викликаємо функцію для оновлення значка корзини
             console.log('itemId: ', itemId)
