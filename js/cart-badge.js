@@ -13,8 +13,8 @@ if (!localStorage.getItem('basket')) {
 let orderJsonData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в localStorage)
 
 const cartBadge = document.querySelector('.cart-badge');
-// const cartCounter = document.querySelector('.cart-badge__counter');
-let itemsCount // початкова кількість замовленого товару невизначена
+const cartCounter = document.querySelector('.cart-badge__counter');
+let itemsCount = 0 // початкова кількість замовленого товару невизначена
 
 function setOrderingListeners() {
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
@@ -36,8 +36,8 @@ function setOrderingListeners() {
 setOrderingListeners()
 
 function updateCartBadge(itemsCount) {
-    // cartCounter.textContent = itemsCount; // Оновлюємо вміст лічильника
-    if (itemsCount) {
+    cartCounter.textContent = itemsCount; // Оновлюємо вміст лічильника
+    if (itemsCount && cartBadge.classList.contains('hidden')) {
         cartBadge.classList.remove('hidden');
     } else {
         cartBadge.classList.add('hidden');
