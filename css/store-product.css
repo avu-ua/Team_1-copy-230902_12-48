@@ -152,6 +152,7 @@ header {
   min-width: auto;
   border: none;
   padding-left: 10px;
+  color: var(--cart-text-color);
 }
 
 .storeproduct__input-arrows-box {
