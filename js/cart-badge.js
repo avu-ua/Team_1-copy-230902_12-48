@@ -20,7 +20,7 @@ let itemsCount // початкова кількість замовленого �
         const itemId = itemIdElem.textContent
         const quantityElem = addBtns[i].querySelector('.qty')
         const quantity = Number(quantityElem.textContent)
-        btn.addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
+        addBtns[i].addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
             itemsCount += quantity; // Збільшуємо лічильник
             updateCartBadge(); // Викликаємо функцію для оновлення значка корзини
             console.log('itemId: ', itemId)
