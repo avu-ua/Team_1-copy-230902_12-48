@@ -2,12 +2,10 @@
 import * as catalogue from './products-catalogue.js' // імпортуємо каталог продуктів
                                                      // (можливо, це не потрібно тут, якщо імпорт що у shop-list.js наслідується і тут)
 
-// початкова кількість замовленого товару невизначена
-let itemsCount = (sessionStorage.getItem('itemsCount')) ? Number(sessionStorage.getItem('itemsCount')) : 0
-console.log('itemsCount on line 7: ', itemsCount)
-// if (sessionStorage.getItem('itemsCount')) {
-//     itemsCount = Number(sessionStorage.getItem('itemsCount'))
-// }
+// початкова кількість замовленого товару
+let preorderedItems = 0
+if (sessionStorage.getItem('itemsCount')) preorderedItems = Number(sessionStorage.getItem('itemsCount'))
+let itemsCount = preorderedItems
 
 const cartBadge = document.querySelector('.cart-badge');
 const cartCounter = document.querySelector('.cart-badge__counter');
@@ -18,12 +16,8 @@ if (!sessionStorage.getItem('basket')) {
     catalogue.products.forEach(el => {
         orderData[el.code] = 0
     })
-} else {
-    orderData = JSON.parse(sessionStorage.getItem('basket'))
-    for (const [key, value] of Object.entries(orderData)) {
-        itemsCount += value
-    }
 }
+
 let jsonOrderData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в sessionStorage)
 
 
@@ -76,18 +70,3 @@ function updateBasketJsonData(itemId, quantity) {
     const test = JSON.parse(sessionStorage.getItem('basket'))
     console.log('Basket retrieved from sessionStorage: ', test)
 }
-
-
-
-
-// if (localStorage.getItem('clearLocalStorageOnUnload') === 'true') {
-//     localStorage.clear()
-// }
-
-// window.addEventListener('beforeunload', () => {
-//     localStorage.setItem('clearLocalStorageOnUnload', 'true')
-// })
-
-// window.addEventListener('load', () => {
-//     localStorage.removeItem('clearLocalStorageOnUnload');
-// });
