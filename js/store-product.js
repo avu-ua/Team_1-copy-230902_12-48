@@ -33,13 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let quantity// needed to submit later to the Basket
 
     document.querySelector('.storeproduct__form-uparrow').addEventListener('click', () => {
-        quantity = Number(document.querySelector('.storeproduct__form-input').value) + 1
-        document.querySelector('.storeproduct__form-input').value = quantity
+        quantity = Number(document.querySelector('.storeproduct__form-input').textContent) + 1
+        document.querySelector('.storeproduct__form-input').textContent = quantity
     })
 
     document.querySelector('.storeproduct__form-downarrow').addEventListener('click', () => {
-        quantity = Math.max(1, document.querySelector('.storeproduct__form-input').value - 1)
-        document.querySelector('.storeproduct__form-input').value = quantity
+        quantity = Math.max(1, Number(document.querySelector('.storeproduct__form-input').textContent) - 1)
+        document.querySelector('.storeproduct__form-input').textContent = quantity
     })
 
     document.addEventListener('partialsLoaded', () => {
