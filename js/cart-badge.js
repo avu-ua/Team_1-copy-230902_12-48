@@ -29,6 +29,7 @@ let orderJsonData // готуємо змінну для прийняття ст�
 function setOrderingListeners() {
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
     const wineIds = document.querySelectorAll('.wineId');
+    console.log('wineIds.length: ', wineIds.length)
     const qtys = document.querySelectorAll('.qty');
     
     for (let i = 0; i < addBtns.length; i++) {
