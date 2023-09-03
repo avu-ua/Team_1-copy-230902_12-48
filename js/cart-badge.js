@@ -30,6 +30,10 @@ function setOrderingListeners() {
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
     const wineIds = document.querySelectorAll('.wineId');
     console.log('wineIds.length: ', wineIds.length)
+    console.log('wineIds[0].textContent: ', wineIds[0].textContent)
+    console.log('wineIds[0].innerHTML: ', wineIds[0].innerHTML)
+    console.log('wineIds[0].innerText: ', wineIds[0].innerText)
+    console.log('wineIds: ', wineIds)
     const qtys = document.querySelectorAll('.qty');
     
     for (let i = 0; i < addBtns.length; i++) {
