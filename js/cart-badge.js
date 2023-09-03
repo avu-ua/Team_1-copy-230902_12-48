@@ -34,6 +34,7 @@ function setOrderingListeners() {
 }
 
 setOrderingListeners()
+updateCartBadge(itemsCount)
 
 function updateCartBadge(itemsCount) {
     cartCounter.textContent = itemsCount; // Оновлюємо вміст лічильника
