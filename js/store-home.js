@@ -71,7 +71,7 @@ const catalogue = loadProductsData()
   
       for (let i = startIndex; i < endIndex && i < catalogue.products.length; i++) {
         const item = catalogue.products[i];
-        console.log(item)
+        const wineId = catalogue.products[i].code.toString()
         productsArea.innerHTML += `
           <div class="storehome__productcard">
               <a class="storehome__link" href="store-product.html?id=${item.code}">
@@ -81,7 +81,11 @@ const catalogue = loadProductsData()
               </figure>
               </a>
               <p class="storehome__price">${item.price + ',00 ' + item.currency}</p>
-              <div class="button storehome__button add-btn">Buy</div>
+              <div class="button storehome__button add-btn">
+                <span class="wine-id" style="display: none">${wineId}</span>  
+                <span>Buy</span>
+                <span class="qty" style="display: none">1</span>
+              </div>
           </div>
         `;
       }
