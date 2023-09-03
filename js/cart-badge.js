@@ -14,12 +14,14 @@ let itemsCount // початкова кількість замовленого �
 
 // function setOrderingListeners() {
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
+    const wineIds = document.querySelectorAll('.wineId');
+    const qtys = document.querySelectorAll('.qty');
     
     for (let i = 0; i < addBtns.length; i++) {
-        const itemIdElem = addBtns[i].querySelector('.wineId')
-        const itemId = itemIdElem.textContent
-        const quantityElem = addBtns[i].querySelector('.qty')
-        const quantity = Number(quantityElem.textContent)
+        // const itemIdElem = addBtns[i].querySelector('.wineId')
+        const itemId = wineIds[i].textContent
+        // const quantityElem = addBtns[i].querySelector('.qty')
+        const quantity = Number(qtys[i].textContent)
         addBtns[i].addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
             itemsCount += quantity; // Збільшуємо лічильник
             updateCartBadge(); // Викликаємо функцію для оновлення значка корзини
