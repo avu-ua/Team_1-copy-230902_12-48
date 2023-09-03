@@ -21,7 +21,7 @@ function renderProduct(products) {
                 <a href="store-product.html" class="product__name">${products[i].name}</a>
                 <p class="product__price">${products[i].price.toFixed(2)}${products[i].currency}</p>
                 <div class="button add-btn" href="#cart-badge">
-                    <span class="wineId" style="display: none">${wineId}</span>
+                    <span class="wine-id" style="display: none">${wineId}</span>
                     <strong>Add to cart</strong>
                     <span class="qty" style="display: none">1</span>
                 </div>

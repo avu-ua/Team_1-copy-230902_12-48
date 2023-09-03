@@ -16,6 +16,8 @@ if (!sessionStorage.getItem('basket')) {
     catalogue.products.forEach(el => {
         orderData[el.code] = 0
     })
+} else {
+    orderData = JSON.parse(sessionStorage.getItem('basket'))
 }
 
 let jsonOrderData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в sessionStorage)
@@ -23,7 +25,7 @@ let jsonOrderData // готуємо змінну для прийняття ст�
 
 function setOrderingListeners() {
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
-    const wineIds = document.querySelectorAll('.wineId');
+    const wineIds = document.querySelectorAll('.wine-id');
     console.log('wineIds.length: ', wineIds.length)
     console.log('wineIds[0].textContent: ', wineIds[0].textContent)
     console.log('wineIds[0].innerHTML: ', wineIds[0].innerHTML)
