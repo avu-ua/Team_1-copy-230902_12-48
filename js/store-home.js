@@ -1,6 +1,6 @@
 async function loadProductsData() {
   try {
-    const response = await fetch('../Team_1-copy-230902_12-48/api/products.json');
+    const response = await fetch('/Team_1-copy-230902_12-48/api/products.json');
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
