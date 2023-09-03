@@ -14,10 +14,10 @@ let itemsCount // початкова кількість замовленого �
 
 function setOrderingListeners() {
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
-    addBtns.forEach(() => {
-        const itemIdElem = btn.querySelector('.wineId')
+    addBtns.forEach((el) => {
+        const itemIdElem = el.querySelector('.wineId')
         const itemId = itemIdElem.textContent
-        const quantityElem = btn.querySelector('.qty')
+        const quantityElem = el.querySelector('.qty')
         const quantity = Number(quantityElem.textContent)
         btn.addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
             itemsCount += quantity; // Збільшуємо лічильник
