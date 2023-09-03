@@ -14,11 +14,13 @@ let itemsCount // початкова кількість замовленого �
 
 document.addEventListener('DOMContentLoaded', function() {
 // function setOrderingListeners() {
+    console.log('Test line 17')
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
     const wineIds = document.querySelectorAll('.wineId');
     const qtys = document.querySelectorAll('.qty');
     
     for (let i = 0; i < addBtns.length; i++) {
+        console.log('Test line 23')
         // const itemIdElem = addBtns[i].querySelector('.wineId')
         const itemId = wineIds[i].textContent
         // const quantityElem = addBtns[i].querySelector('.qty')
