@@ -3,9 +3,13 @@ import * as catalogue from './products-catalogue.js' // імпортуємо к�
                                                      // (можливо, це не потрібно тут, якщо імпорт що у shop-list.js наслідується і тут)
 // у цьому розділі готуємо пустий масив, що містить key : value пари по кожному товару в каталозі --> ID товара : нульова кількість
 let orderData = {}
-catalogue.products.forEach(el => {
-    orderData[el.code] = 0
-})
+if (!localStorage.getItem('basket')) {
+    catalogue.products.forEach(el => {
+        orderData[el.code] = 0
+    })
+} else {
+    orderData = JSON.parse(localStorage.getItem('basket'))
+}
 let orderJsonData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в localStorage)
 
 const cartBadge = document.querySelector('.cart-badge');
