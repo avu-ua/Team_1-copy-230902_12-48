@@ -14,7 +14,7 @@ function renderProduct(products) {
     const productsContainer = document.querySelector('.shop__products')
     productsContainer.innerHTML = ''
     for (let i = 0; i < products.length; i++) {
-        const wineId = Number(products[i].code)
+        const wineId = products[i].code.toString()
         const content =
             `<div class="shop__product product">
                 <a href="store-product.html?id=${products[i].code}"><img src="${products[i].images[0]}" alt="${products[i].name}"></img></a>

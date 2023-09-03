@@ -14,13 +14,14 @@ function renderProduct(products) {
     productsContainer.innerHTML = '';
     for (let i = 0; i < products.length; i++) {
         if (products[i].bestDeal) {
+            const wineId = products[i].code.toString()
             const content = `
             <div class="best-deals__product product">
                 <a class="id-${products[i].code}" href="store-product.html"><img src="${products[i].images[0]}" alt="${products[i].name}"></img></a>
                 <a href="store-product.html" class="product__name id-${products[i].code}">${products[i].name}</a>
                 <p class="product__price">${products[i].price.toFixed(2)}${products[i].currency}</p>
                 <div class="button add-btn">
-                    <span class="wineId" style="display: none">${products[i].code}</span>
+                    <span class="wine-id" style="display: none">${wineId}</span>
                     <strong>Add to cart</strong>
                     <span class="qty" style="display: none">1</span>
                 </div>
