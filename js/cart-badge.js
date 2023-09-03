@@ -39,7 +39,7 @@ function updateCartBadge(itemsCount) {
     cartCounter.textContent = itemsCount; // Оновлюємо вміст лічильника
     if (itemsCount && cartBadge.classList.contains('hidden')) {
         cartBadge.classList.remove('hidden');
-    } else {
+    } else if (!itemsCount) {
         cartBadge.classList.add('hidden');
     }
 }
