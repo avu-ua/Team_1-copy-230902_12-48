@@ -5,7 +5,7 @@ import * as catalogue from './products-catalogue.js' // імпортуємо к�
 
 let itemsCount = 0 // початкова кількість замовленого товару невизначена
 if (localStorage.getItem('itemsCount')) {
-    itemsCount = localStorage.getItem('itemsCount')
+    itemsCount = Number(localStorage.getItem('itemsCount'))
 }
 
 const cartBadge = document.querySelector('.cart-badge');
