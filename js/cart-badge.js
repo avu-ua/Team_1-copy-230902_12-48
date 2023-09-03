@@ -24,7 +24,7 @@ if (!sessionStorage.getItem('basket')) {
         itemsCount += value
     }
 }
-let orderJsonData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в sessionStorage)
+let jsonOrderData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в sessionStorage)
 
 
 function setOrderingListeners() {
@@ -41,8 +41,7 @@ function setOrderingListeners() {
         const itemId = wineIds[i].textContent
         const quantity = Number(qtys[i].textContent)
         addBtns[i].addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
-            itemsCount += quantity; // Збільшуємо лічильник
-            console.log('before "sessionStorage.setItem(\'itemsCount\', itemsCount)"')
+            itemsCount = itemsCount + quantity; // Збільшуємо лічильник
             sessionStorage.setItem('itemsCount', itemsCount)
             console.log('itemsCount on click: ', itemsCount)
             updateCartBadge(itemsCount); // Викликаємо функцію для оновлення значка корзини
@@ -65,8 +64,8 @@ function updateCartBadge(itemsCount) {
 
 function updateBasketJsonData(itemId, quantity) {
     orderData[itemId] += quantity
-    orderJsonData = JSON.stringify(orderData)
-    sessionStorage.setItem('basket', orderJsonData)
+    jsonOrderData = JSON.stringify(orderData)
+    sessionStorage.setItem('basket', jsonOrderData)
     
     // нижче - виключно для тестування
     const test = JSON.parse(sessionStorage.getItem('basket'))
