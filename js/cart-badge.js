@@ -14,30 +14,21 @@ let itemsCount // початкова кількість замовленого �
 
 function setOrderingListeners() {
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
-    for (let i = 0; i < addBtns.length; i++) {
-        const itemId = addBtns[i].firstChild.innerText
-        const quantity = Number(addBtns[i].lastChild.innerText)
-        addBtns[i].addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
+    addBtns.forEach(() => {
+        const itemIdElem = btn.querySelector('.wineId')
+        const itemId = itemIdElem.textContent
+        const quantityElem = btn.querySelector('.qty')
+        const quantity = Number(quantityElem.textContent)
+        btn.addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
             itemsCount += quantity; // Збільшуємо лічильник
             updateCartBadge(); // Викликаємо функцію для оновлення значка корзини
             console.log('itemId: ', itemId)
             console.log('quantity: ', quantity)
             updateBasketJsonData(itemId, quantity) // Викликаємо функцію для оновлення JSON-стрінги для Корзини (містить пари "ID товара : кількість")
-        })
-    }
+        });
+    }); 
 }
-//     addBtns.forEach(() => {
-//         const itemId = btn.firstChild.innerText
-//         const quantity = Number(btn.lastChild.innerText)
-//         btn.addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
-//             itemsCount += quantity; // Збільшуємо лічильник
-//             updateCartBadge(); // Викликаємо функцію для оновлення значка корзини
-//             console.log('itemId: ', itemId)
-//             console.log('quantity: ', quantity)
-//             updateBasketJsonData(itemId, quantity) // Викликаємо функцію для оновлення JSON-стрінги для Корзини (містить пари "ID товара : кількість")
-//         });
-//     }); 
-// }
+
 
 setOrderingListeners()
 
