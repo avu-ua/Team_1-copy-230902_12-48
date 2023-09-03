@@ -2,11 +2,11 @@
 import * as catalogue from './products-catalogue.js' // імпортуємо каталог продуктів
                                                      // (можливо, це не потрібно тут, якщо імпорт що у shop-list.js наслідується і тут)
 
-
-let itemsCount = 0 // початкова кількість замовленого товару невизначена
-if (sessionStorage.getItem('itemsCount')) {
-    itemsCount = Number(sessionStorage.getItem('itemsCount'))
-}
+// початкова кількість замовленого товару невизначена
+let itemsCount = (sessionStorage.getItem('itemsCount')) ? itemsCount = Number(sessionStorage.getItem('itemsCount')) : 0
+// if (sessionStorage.getItem('itemsCount')) {
+//     itemsCount = Number(sessionStorage.getItem('itemsCount'))
+// }
 
 const cartBadge = document.querySelector('.cart-badge');
 const cartCounter = document.querySelector('.cart-badge__counter');
