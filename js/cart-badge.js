@@ -22,6 +22,9 @@ if (!sessionStorage.getItem('basket')) {
 
 let jsonOrderData // готуємо змінну для прийняття створеного масиву orderData у якості JSON-стрінги (треба щоби була можливість записувати це в sessionStorage)
 
+setOrderingListeners()
+
+updateCartBadge(itemsCount)
 
 function setOrderingListeners() {
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
@@ -46,13 +49,9 @@ function setOrderingListeners() {
     }
 }
 
-setOrderingListeners()
-
-updateCartBadge(itemsCount)
-
 function updateCartBadge(itemsCount) {
     cartCounter.textContent = itemsCount; // Оновлюємо вміст лічильника
-    if (itemsCount && cartBadge.classList.contains('hidden')) {
+    if (itemsCount) {
         cartBadge.classList.remove('hidden');
     } else if (!itemsCount) {
         cartBadge.classList.add('hidden');
