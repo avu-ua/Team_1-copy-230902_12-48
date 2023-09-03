@@ -4,6 +4,7 @@ import * as catalogue from './products-catalogue.js' // імпортуємо к�
 
 // початкова кількість замовленого товару невизначена
 let itemsCount = (sessionStorage.getItem('itemsCount')) ? Number(sessionStorage.getItem('itemsCount')) : 0
+console.log('itemsCount on line 7: ', itemsCount)
 // if (sessionStorage.getItem('itemsCount')) {
 //     itemsCount = Number(sessionStorage.getItem('itemsCount'))
 // }
