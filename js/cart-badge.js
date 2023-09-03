@@ -36,6 +36,7 @@ function setOrderingListeners() {
         const quantity = Number(qtys[i].textContent)
         addBtns[i].addEventListener('click', () => { // Збільшуємо лічильник при кожному кліку
             itemsCount += quantity; // Збільшуємо лічильник
+            console.log('before "localStorage.setItem(\'itemsCount\', itemsCount)"')
             localStorage.setItem('itemsCount', itemsCount)
             console.log('itemsCount on click: ', itemsCount)
             updateCartBadge(itemsCount); // Викликаємо функцію для оновлення значка корзини
