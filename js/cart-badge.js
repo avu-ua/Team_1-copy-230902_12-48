@@ -3,7 +3,7 @@ import * as catalogue from './products-catalogue.js' // імпортуємо к�
                                                      // (можливо, це не потрібно тут, якщо імпорт що у shop-list.js наслідується і тут)
 
 // початкова кількість замовленого товару невизначена
-let itemsCount = (sessionStorage.getItem('itemsCount')) ? itemsCount = Number(sessionStorage.getItem('itemsCount')) : 0
+let itemsCount = (sessionStorage.getItem('itemsCount')) ? Number(sessionStorage.getItem('itemsCount')) : 0
 // if (sessionStorage.getItem('itemsCount')) {
 //     itemsCount = Number(sessionStorage.getItem('itemsCount'))
 // }
