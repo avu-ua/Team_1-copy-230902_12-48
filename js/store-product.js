@@ -30,16 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.product__currency').addEventListener('change', convertCurr)
     document.querySelector('.storeproduct__description').innerHTML = selectedProduct.description
 
-    let quantity// needed to submit later to the Basket
-
     document.querySelector('.storeproduct__form-uparrow').addEventListener('click', () => {
-        quantity = Number(document.querySelector('.storeproduct__form-input').textContent) + 1
-        document.querySelector('.storeproduct__form-input').textContent = quantity
+        document.querySelector('.qty').textContent += 1
     })
 
     document.querySelector('.storeproduct__form-downarrow').addEventListener('click', () => {
-        quantity = Math.max(1, Number(document.querySelector('.storeproduct__form-input').textContent) - 1)
-        document.querySelector('.storeproduct__form-input').textContent = quantity
+        document.querySelector('.qty').textContent = Math.max(1, document.querySelector('.qty').textContent - 1)
     })
 
     document.addEventListener('partialsLoaded', () => {
