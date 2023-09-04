@@ -3,8 +3,6 @@ document.addEventListener('partialsLoaded', async () => {
     await import('./cart-badge.js');
 });
 document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const productIdentifier = urlParams.get('id');
 
     const selectedProduct = JSON.parse(localStorage.getItem('selectedProductData'))
 
@@ -31,20 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.storeproduct__description').innerHTML = selectedProduct.description
 
     document.querySelector('.storeproduct__form-uparrow').addEventListener('click', () => {
-        document.querySelector('.qty').textContent += 1
+        document.querySelector('.qty').textContent = Number(document.querySelector('.qty').textContent) + 1
+        setOrderingListeners()
     })
 
     document.querySelector('.storeproduct__form-downarrow').addEventListener('click', () => {
         document.querySelector('.qty').textContent = Math.max(1, document.querySelector('.qty').textContent - 1)
+        setOrderingListeners()
     })
 
     document.addEventListener('partialsLoaded', () => {
     const websiteLogo = document.querySelector('.websiteLogo')
     websiteLogo.style.cursor = 'pointer'
     websiteLogo.addEventListener('click', () => window.location.href = "index.html")
-
-    const cartButton = document.querySelector('.add-btn')
-    cartButton.href = `store-product.html?id=${productIdentifier}#cart-badge`
     })
 
     let currencies
