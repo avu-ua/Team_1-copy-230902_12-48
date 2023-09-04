@@ -24,7 +24,7 @@ let jsonOrderData // готуємо змінну для прийняття ст�
 
 setOrderingListeners()
 
-document.querySelector('.qty').innerText.addEventListener('change', () => {
+document.querySelector('.qty').addEventListener('input', () => {
     setOrderingListeners()
 })
 
