@@ -24,6 +24,10 @@ let jsonOrderData // готуємо змінну для прийняття ст�
 
 setOrderingListeners()
 
+document.querySelector('.qty').innerText.addEventListener('change', () => {
+    setOrderingListeners()
+})
+
 console.log('itemsCount right before updateCartBadge(itemsCount): ', itemsCount)
 updateCartBadge(itemsCount)
 

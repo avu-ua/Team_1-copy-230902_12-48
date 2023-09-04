@@ -30,12 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('.storeproduct__form-uparrow').addEventListener('click', () => {
         document.querySelector('.qty').textContent = Number(document.querySelector('.qty').textContent) + 1
-        setOrderingListeners()
     })
 
     document.querySelector('.storeproduct__form-downarrow').addEventListener('click', () => {
         document.querySelector('.qty').textContent = Math.max(1, document.querySelector('.qty').textContent - 1)
-        setOrderingListeners()
     })
 
     document.addEventListener('partialsLoaded', () => {
