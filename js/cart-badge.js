@@ -26,19 +26,15 @@ setOrderingListeners()
 
 document.querySelector('.qty').addEventListener('input', () => {
     setOrderingListeners()
+    console.log("setOrderingListeners has re-run")
+    console.log(document.querySelector('.qty'))
 })
 
-console.log('itemsCount right before updateCartBadge(itemsCount): ', itemsCount)
 updateCartBadge(itemsCount)
 
 function setOrderingListeners() {
     const addBtns = document.querySelectorAll('.add-btn'); // обираємо всі кнопки "Замовити / купити" (в т.ч. при прокрутці карусельки)
     const wineIds = document.querySelectorAll('.wine-id');
-    console.log('wineIds.length: ', wineIds.length)
-    console.log('wineIds[0].textContent: ', wineIds[0].textContent)
-    console.log('wineIds[0].innerHTML: ', wineIds[0].innerHTML)
-    console.log('wineIds[0].innerText: ', wineIds[0].innerText)
-    console.log('wineIds: ', wineIds)
     const qtys = document.querySelectorAll('.qty');
     
     for (let i = 0; i < addBtns.length; i++) {
