@@ -1,14 +1,14 @@
 
-// const url = window.location.href
+const url = window.location.href
 
 // const domain = (new URL(url)).hostname
 
 // console.log('full url: ', url)
 // console.log('domain: ', domain)
 
-// const footerLinksExtensions = ['history', 'about', 'awards', 'faq', 'best-deals', 'shop', '', '', ]
+const footerLinksExtensions = ['history', 'about', 'awards', 'faq', 'best-deals', 'shop', '', '', ]
 
-// const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
+const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
 
 if (url.includes('store')) {
     for (let i = 0; i < footerLinks.length; i++) {
