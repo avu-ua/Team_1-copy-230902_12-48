@@ -9,13 +9,13 @@ const footerLinksExtensions = ['history', 'about', 'awards', 'faq', 'best-deals'
 
 const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
 
-if (url.includes('index.html' || url.length === domain.length)) {
+if (!url.includes('index.html')) {
     for (let i = 0; i < footerLinks.length; i++) {
-    footerLinks[i].href = '#' + footerLinksExtensions[i]
+        footerLinks[i].href = 'index.html#' + footerLinksExtensions[i]
     }
 } else {
     for (let i = 0; i < footerLinks.length; i++) {
-        footerLinks[i].href = 'index.html#' + footerLinksExtensions[i]
+        footerLinks[i].href = '#' + footerLinksExtensions[i]
     }
 }
 
