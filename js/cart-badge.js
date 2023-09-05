@@ -24,7 +24,7 @@ let jsonOrderData // готуємо змінну для прийняття ст�
 
 setOrderingListeners()
 
-document.querySelector('.qty').addEventListener('input', () => {
+document.querySelector('.qty').addEventListener('change', () => {
     setOrderingListeners()
     console.log("setOrderingListeners has re-run")
     console.log(document.querySelector('.qty'))
