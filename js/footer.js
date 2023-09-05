@@ -1,10 +1,20 @@
-const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
+// const url = window.location.href;
+// console.log('url: ', url)
+
+// const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
 
 
-footerLinks.forEach( (link) => {
-    const newHref = 'index.html' + link.href
-    link.href = newHref
-})
+// footerLinks.forEach( (el) => {
+//     if (!url.includes('index.html')) {
+//         const currentLink = el.href
+//         console.log('does not include')
+//         const position = url.indexOf('#')
+//         el.href = currentLink.slice(0, position) + 'index.html' + currentLink.slice(position)
+
+//     } else {
+//         console.log('includes')
+//     }
+// })
 
 const instagramPhotos = [
     'img/footer-photogallery-corks.png',
