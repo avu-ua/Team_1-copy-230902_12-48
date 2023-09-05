@@ -1,15 +1,16 @@
-const url = window.location.href
 
-const domain = (new URL(url)).hostname
+// const url = window.location.href
 
-console.log('full url: ', url)
-console.log('domain: ', domain)
+// const domain = (new URL(url)).hostname
 
-const footerLinksExtensions = ['history', 'about', 'awards', 'faq', 'best-deals', 'shop', '', '', ]
+// console.log('full url: ', url)
+// console.log('domain: ', domain)
 
-const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
+// const footerLinksExtensions = ['history', 'about', 'awards', 'faq', 'best-deals', 'shop', '', '', ]
 
-if (!url.includes('index.html')) {
+// const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
+
+if (url.includes('store')) {
     for (let i = 0; i < footerLinks.length; i++) {
         footerLinks[i].href = 'index.html#' + footerLinksExtensions[i]
     }
