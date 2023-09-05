@@ -16,7 +16,7 @@ if (url.includes('store')) {
     }
 } else {
     for (let i = 0; i < footerLinks.length; i++) {
-        footerLinks[i].href = '#' + footerLinksExtensions[i]
+        footerLinks[i].href = - 'index.html' + '#' + footerLinksExtensions[i]
     }
 }
 
