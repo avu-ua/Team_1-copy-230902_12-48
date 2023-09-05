@@ -1,18 +1,51 @@
+const url = window.location.href
+
+const domain = (new URL(url)).hostname
+
+console.log('full url: ', url)
+console.log('domain: ', domain)
+
+const footerLinksExtensions = ['history', 'about', 'awards', 'faq', 'best-deals', 'shop', '', '', ]
+
+const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
+
+if (url.includes('index.html' || url.length === domain.length)) {
+    for (let i = 0; i < footerLinks.length; i++) {
+    footerLinks[i].href = '#' + footerLinksExtensions[i]
+    }
+} else {
+    for (let i = 0; i < footerLinks.length; i++) {
+        footerLinks[i].href = 'index.html#' + footerLinksExtensions[i]
+    }
+}
+
+// const footerLinksExtensions = ['history', 'about', 'awards', 'faq', 'best-deals', 'shop', '', '', ]
+
+// const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
+
 // const url = window.location.href;
-// console.log('url: ', url)
+
+// for (let i = 0; i < footerLinks.length; i++) {
+//     if (url.includes('index.html')) {
+//         footerLinks[i].href += footerLinksExtensions[i]
+//     } else {
+//         footerLinks[i].href += footerLinks[i].href.slice(0, -1) + 'index.html#' + footerLinksExtensions[i]
+//     }
+// }
+
+
+
+// const url = window.location.href;
 
 // const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
 
 
 // footerLinks.forEach( (el) => {
 //     if (!url.includes('index.html')) {
+//         const startOfPageHref = url.lastIndexOf('/') + 1
+//         const endOfPageHref = url.length
 //         const currentLink = el.href
-//         console.log('does not include')
-//         const position = url.indexOf('#')
-//         el.href = currentLink.slice(0, position) + 'index.html' + currentLink.slice(position)
-
-//     } else {
-//         console.log('includes')
+//         el.href = currentLink.slice(0, startOfPageHref) + 'index.html' + currentLink.slice(endOfPageHref)
 //     }
 // })
 
