@@ -1,3 +1,11 @@
+const footerLinks = document.querySelectorAll('.footer__info-menuitem .footer__link, .footer__shop-menuitem .footer__link')
+
+
+footerLinks.forEach( (link) => {
+    const newHref = 'index.html' + link.href
+    link.href = newHref
+})
+
 const instagramPhotos = [
     'img/footer-photogallery-corks.png',
     'img/footer-photogallery-drinking.png',
