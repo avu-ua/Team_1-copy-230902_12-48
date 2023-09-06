@@ -30,7 +30,7 @@ document.querySelector('.storeproduct__form-uparrow').addEventListener('click', 
     console.log("arro UP was clicked")
 })
 
-document.querySelector('.storeproduct__form-down').addEventListener('click', () => {
+document.querySelector('.storeproduct__form-downarrow').addEventListener('click', () => {
     setOrderingListeners()
     console.log("setOrderingListeners has re-run")
     console.log("arrow DOWN was clicked")
