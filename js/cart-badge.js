@@ -24,10 +24,16 @@ let jsonOrderData // готуємо змінну для прийняття ст�
 
 setOrderingListeners()
 
-document.querySelector('.qty').addEventListener('change', () => {
+document.querySelector('.storeproduct__form-uparrow').addEventListener('click', () => {
     setOrderingListeners()
     console.log("setOrderingListeners has re-run")
-    console.log(document.querySelector('.qty'))
+    console.log("arro UP was clicked")
+})
+
+document.querySelector('.storeproduct__form-down').addEventListener('click', () => {
+    setOrderingListeners()
+    console.log("setOrderingListeners has re-run")
+    console.log("arrow DOWN was clicked")
 })
 
 updateCartBadge(itemsCount)
